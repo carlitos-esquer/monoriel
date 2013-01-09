@@ -1,4 +1,4 @@
->There must be some way out of here 
+﻿>There must be some way out of here 
 >Said the "programmer" to the "chief"
 >There's too much confusion  
 >I can get no "release" -- Bob Dylan
@@ -108,6 +108,6 @@ Now save this into app.rb
 
 	end
 
-You need to provide the class Page in your models.
-You can use slim, haml, scss and erb templates with Monoriel
-Please use App in Samples for testing and documentation
+- You need to provide the class Page in your models.
+- You can use slim, haml, scss and erb templates with Monoriel
+- Please use App in Samples for testing and documentation

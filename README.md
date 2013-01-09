@@ -1,6 +1,6 @@
-﻿>There must be some way out of here 
+﻿>There must be some way out of here
 >Said the "programmer" to the "chief"
->There's too much confusion  
+>There's too much confusion
 >I can get no "release" -- Bob Dylan
 
 MonoRiel

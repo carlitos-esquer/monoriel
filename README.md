@@ -1,4 +1,4 @@
-﻿>There must be some way out of here
+>There must be some way out of here
 >said the "programmer" to the "chief"
 >there's too much confusion
 >i can get no "release" -- Bob Dylan

@@ -1,7 +1,7 @@
 ﻿>There must be some way out of here
->Said the "programmer" to the "chief"
->There's too much confusion
->I can get no "release" -- Bob Dylan
+>said the "programmer" to the "chief"
+>there's too much confusion
+>i can get no "release" -- Bob Dylan
 
 MonoRiel
 =====

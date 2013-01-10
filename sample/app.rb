@@ -22,15 +22,15 @@ class App
 			"<b>Always generate BOLD</b>"
 		end
 
-    def json_response(data=nil)
-			@res['Content-Type'] = "text/plain;charset=utf-8"
-			data.nil? ? "{}" : JSON.generate(data)
-    end
-    
-    def yaml_response(data=nil)
-			@res['Content-Type'] = "text/plain;charset=utf-8"
-			data.to_yaml
-    end
+		def json_response(data=nil)
+				@res['Content-Type'] = "text/plain;charset=utf-8"
+				data.nil? ? "{}" : JSON.generate(data)
+		end
+		
+		def yaml_response(data=nil)
+				@res['Content-Type'] = "text/plain;charset=utf-8"
+				data.to_yaml
+		end
     
 	end
 
@@ -120,7 +120,6 @@ class App
 	def not_found(*args)
 		# This one is defined by mini-train but here we decided to override it
 		# Like :index this method receives the arguments in order to make something with it
-		#Email.alert('Too many people are looking for porn here') if args.includes?("porn")
 		super(args)
 	end
 

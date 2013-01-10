@@ -1,6 +1,6 @@
 Gem::Specification.new do |s| 
   s.name = 'monoriel'
-  s.version = "0.1.0"
+  s.version = "0.1.1"
   s.platform = Gem::Platform::RUBY
   s.summary = "A rack based web framework forked from mini-train"
   s.description = "This is a super simplistic but useful web framework"

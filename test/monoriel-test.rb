@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'rack/lobster'
-require '../lib/monoriel'
+require_relative '../lib/monoriel'
 
 # =========
 # = Basic =
@@ -191,11 +191,11 @@ describe "Monoriel" do
     assert_equal 'Growl',BasicR.get('/test_throw').body
   end
   
-  it "Should response with the helpers content" do
+  it "Should respond with the helpers content" do
     assert_equal 'Hola mundo',UsingHelpersR.get('/').body
   end
 
-	it "Should response with Post method selector" do
+	it "Should respond with Post method selector" do
 		assert_equal "POST",UsingPostPutAndDeleteR.post("/data").body
 		assert_equal "PUT",UsingPostPutAndDeleteR.put("/data").body
 		assert_equal "DELETE",UsingPostPutAndDeleteR.delete("/data").body

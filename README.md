@@ -10,7 +10,7 @@ MonoRiel is an attempt to fork from mini-rail
 which is in itself a fork from another rack project(rack-golem) into
 super simplistic but useful web mini-framework (MonoRiel (spanish) = monorail (english))
 
-there's no gem for now, but somewhere in time you will:
+gem updated and uploaded, now you can:
 
     sudo gem install monoriel
 
@@ -111,3 +111,4 @@ Now save this into app.rb
 - You need to provide the class Page in your models.
 - You can use slim, haml, scss and erb templates with Monoriel
 - Please use App in Samples for testing and documentation
+- You can see my monoblog project for a real app sample code

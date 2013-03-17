@@ -1,6 +1,8 @@
 require 'minitest/autorun'
 require 'rack/lobster'
+require 'slim'
 require_relative '../lib/monoriel'
+
 
 # =========
 # = Basic =
@@ -94,6 +96,37 @@ class UsingPostPutAndDelete
 	def delete_data; @r.request_method; end
 end
 UsingPostPutAndDeleteR = ::Rack::MockRequest.new(::Rack::Lint.new(Rack::MethodOverride.new(UsingPostPutAndDelete.new)))
+
+# =======================
+# = Templates with Blocks =
+# =========
+
+class UsingTemplatesWithBlocks
+	include Monoriel
+	helpers do
+		def render template
+			slim :layout do
+				slim template.to_sym
+			end
+		end
+	end
+	def index
+		render 'test'
+	end
+end
+UsingTemplatesWithBlocksR = ::Rack::MockRequest.new(::Rack::Lint.new(Rack::MethodOverride.new(UsingTemplatesWithBlocks.new)))
+
+# =======================
+# = Templates with Blocks =
+# =========
+
+class UsingTemplatesWithoutBlocks
+	include Monoriel
+	def index
+		slim :layout
+	end
+end
+UsingTemplatesWithoutBlocksR = ::Rack::MockRequest.new(::Rack::Lint.new(Rack::MethodOverride.new(UsingTemplatesWithoutBlocks.new)))
 
 # =========
 # = Specs =
@@ -200,4 +233,11 @@ describe "Monoriel" do
 		assert_equal "PUT",UsingPostPutAndDeleteR.put("/data").body
 		assert_equal "DELETE",UsingPostPutAndDeleteR.delete("/data").body
 	end	
+	it "Should respond with Page in a Layout" do
+		assert_equal "<h1>&lt;p&gt;Content&lt;/p&gt;</h1>",UsingTemplatesWithBlocksR.get("/").body
+	end
+	it "Should respond with only the Layout content" do
+		assert_equal "<h1></h1>",UsingTemplatesWithoutBlocksR.get("/").body
+	end
+	
 end

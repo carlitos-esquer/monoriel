@@ -78,7 +78,7 @@ module Monoriel
       "ERROR 500"
     end
     
-    def tpl(template, extention)
+    def tpl(template, extention,&block)
 			key = (template.to_s + extention.gsub(/[.]/,"_")).to_sym
       @@tilt_cache ||= {}
       if @@tilt_cache.has_key?(key)
@@ -90,23 +90,33 @@ module Monoriel
         @@tilt_cache.store(key,template_obj) if ENV['RACK_ENV']=='production'
       end
       @res['Content-Type'] = "text/html;charset=utf-8"
-      template_obj.render(self)
+      template_obj.render(self) do
+		yield if block_given?
+      end
     end
     
-	def erb(template)
-		tpl(template,'.erb')
+	def erb(template,&block)
+		tpl(template,'.erb') do 
+			yield if block_given?
+		end
 	end
 	
-	def slim(template)
-		tpl(template,'.slim')
+	def slim(template,&block)
+		tpl(template,'.slim') do
+			yield if block_given?
+		end
 	end
 	
-	def haml(template)
-		tpl(template,'.haml')
+	def haml(template,&block)
+		tpl(template,'.haml',block) do
+			yield if block_given?
+		end
 	end
 
-	def scss(template)
-		tpl(template,'.scss')
+	def scss(template,&block)
+		tpl(template,'.scss',block) do
+			yield if block_given?
+		end
 	end
   end
   

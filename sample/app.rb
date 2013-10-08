@@ -1,4 +1,4 @@
-﻿require '../lib/monoriel'
+﻿require 'monoriel'
 require 'slim'
 require 'yaml'
 require 'json'
@@ -35,6 +35,7 @@ class App
 	end
 
 	def form
+		@res['Content-Type'] = "text/html;charset=utf-8"
 		"<form action='/datos' method='post'>" +
 		"<p> Nombre:" +
 		"<input name='nombre' type='text'> "+
@@ -43,6 +44,7 @@ class App
 	end
 	
 	def update
+		@res['Content-Type'] = "text/html;charset=utf-8"
 		"<form action='/datos' method='post'>" +
 		"<input type='hidden' name='_method' value='put'"+
 		"<p> Nombre:" +
